@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mom ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Georgia", serif;
+    overflow-x: hidden;
+    background: #001f3f;
+    color: white;
+}
+
+/* BEACH BACKGROUND */
+.beach {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 180, 100, 0.25),
+            rgba(0, 180, 220, 0.15)
+        ),
+        linear-gradient(
+            to bottom,
+            #ffb88c 0%,
+            #ffd59a 20%,
+            #65c7d8 48%,
+            #0789a8 70%,
+            #f4d59a 70%,
+            #e6c080 100%
+        );
+}
+
+/* SUN */
+.sun {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #fff2a8;
+    box-shadow: 0 0 70px #fff2a8;
+    top: 70px;
+    right: 12%;
+}
+
+/* CONTENT */
+.container {
+    position: relative;
+    z-index: 5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.card {
+    width: min(850px, 95%);
+    padding: 50px 35px;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.25),
+        inset 0 0 30px rgba(255,255,255,0.12);
+
+    animation: appear 2s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.small {
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    color: #fff;
+    text-shadow:
+        0 0 10px #ff69b4,
+        0 0 25px #ff69b4,
+        0 0 50px #ff1493;
+
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+        0 0 10px #ff69b4,
+        0 0 20px #ff69b4;
+    }
+    to {
+        text-shadow:
+        0 0 20px #fff,
+        0 0 40px #ff69b4,
+        0 0 70px #ff1493;
+    }
+}
+
+.age {
+    margin: 15px 0;
+    font-size: 22px;
+}
+
+.quote {
+    font-size: 25px;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 30px auto;
+    max-width: 700px;
+}
+
+.message {
+    font-size: 19px;
+    line-height: 1.8;
+    margin: 25px auto;
+    max-width: 700px;
+}
+
+.highlight {
+    color: #ffe4f2;
+    font-weight: bold;
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff4081, #ff80ab);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(255,64,129,.5);
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 35px rgba(255,64,129,.8);
+}
+
+/* FLOWERS */
+.flower {
+    position: fixed;
+    top: -50px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* FLOATING HEARTS */
+.heart {
+    position: absolute;
+    color: #ffb6d5;
+    font-size: 25px;
+    animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+        opacity: .5;
+    }
+
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+}
+
+/* WAVES */
+.wave {
+    position: absolute;
+    bottom: 20%;
+    left: -10%;
+    width: 120%;
+    height: 100px;
+    background: rgba(255,255,255,.25);
+    border-radius: 50%;
+    animation: waveMove 6s ease-in-out infinite;
+}
+
+.wave:nth-child(2) {
+    bottom: 25%;
+    animation-delay: -2s;
+    opacity: .5;
+}
+
+@keyframes waveMove {
+    0%,100% {
+        transform: translateX(-3%) rotate(1deg);
+    }
+    50% {
+        transform: translateX(3%) rotate(-1deg);
+    }
+}
+
+/* SAND TEXT */
+.sand {
+    position: absolute;
+    bottom: 7%;
+    width: 100%;
+    text-align: center;
+    color: rgba(80,50,20,.55);
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+/* MOBILE */
+@media(max-width:600px) {
+    .card {
+        padding: 35px 20px;
+    }
+
+    .quote {
+        font-size: 20px;
+    }
+
+    .message {
+        font-size: 16px;
+    }
+
+    .sun {
+        width: 80px;
+        height: 80px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="beach">
+
+    <div class="sun"></div>
+
+    <!-- Waves -->
+    <div class="wave"></div>
+    <div class="wave"></div>
+
+    <!-- Floating hearts -->
+    <div class="heart" style="left:10%; top:20%;">♡</div>
+    <div class="heart" style="left:85%; top:35%; animation-delay:1s;">♡</div>
+    <div class="heart" style="left:20%; top:60%; animation-delay:2s;">♡</div>
+    <div class="heart" style="left:75%; top:65%; animation-delay:3s;">♡</div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="small">🌊 A Special Day By The Sea 🌊</div>
+
+            <h1>Happy Birthday<br>Mom ❤️</h1>
+
+            <div class="age">
+                ✨ Shailaja ✨
+                <br>
+                <span>23 April 1990</span>
+            </div>
+
+            <div class="quote">
+                "A mother's love is the ocean —
+                endless, beautiful, and deeper than words can ever describe."
+            </div>
+
+            <div class="message">
+
+                Dear <span class="highlight">Mom, Shailaja</span> ❤️,
+
+                <br><br>
+
+                Today, the waves seem a little brighter,
+                the flowers a little more beautiful,
+                and the sky a little more magical —
+                because it's the birthday of the most wonderful mother.
+
+                <br><br>
+
+                You are the warmth of my sunshine,
+                the calm in my storms,
+                and the beautiful reason behind so many of my smiles.
+
+                <br><br>
+
+                May your life always be filled with
+                <span class="highlight">
+                    happiness, laughter, love, peace and countless beautiful memories.
+                </span>
+
+                <br><br>
+
+                🌸 May every flower bloom for you.<br>
+                🌊 May every wave carry your worries away.<br>
+                ✨ May every sunrise bring you a new reason to smile.
+
+            </div>
+
+            <div class="quote">
+                "No matter how far the waves travel,
+                they always return to the shore —
+                just like my heart will always return to you, Mom."
+            </div>
+
+            <button onclick="birthdayBlast()">
+                🎉 CLICK FOR BIRTHDAY BLAST 🎉
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="sand">
+        🌸 Forever Loved • Forever Cherished • Forever Mom 🌸
+    </div>
+
+</div>
+
+<script>
+
+/* =========================
+   BIRTHDAY BLAST
+========================= */
+
+function birthdayBlast() {
+
+    // Confetti
+    for(let i = 0; i < 150; i++) {
+
+        const flower = document.createElement("div");
+
+        flower.className = "flower";
+
+        const flowers = [
+            "🌸",
+            "🌺",
+            "🌹",
+            "🌷",
+            "💮",
+            "✨",
+            "💖",
+            "🎉",
+            "🎊"
+        ];
+
+        flower.innerHTML =
+            flowers[Math.floor(Math.random() * flowers.length)];
+
+        flower.style.left =
+            Math.random() * 100 + "vw";
+
+        flower.style.fontSize =
+            (15 + Math.random() * 30) + "px";
+
+        flower.style.animationDuration =
+            (3 + Math.random() * 5) + "s";
+
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+            flower.remove();
+        }, 8000);
+    }
+
+    // Firework-style bursts
+    createFireworks();
+
+    // Change button
+    document.querySelector("button").innerHTML =
+        "💖 LOVE YOU MOM! 💖";
+
+    // Play birthday sound
+    playBirthdaySound();
+}
+
+
+/* =========================
+   FIREWORKS
+========================= */
+
+function createFireworks() {
+
+    for(let burst = 0; burst < 8; burst++) {
+
+        setTimeout(() => {
+
+            const x = Math.random() * window.innerWidth;
+            const y = 100 + Math.random() *
+                (window.innerHeight * .5);
+
+            for(let i = 0; i < 25; i++) {
+
+                const particle =
+                    document.createElement("div");
+
+                particle.innerHTML = "✨";
+
+                particle.style.position = "fixed";
+                particle.style.left = x + "px";
+                particle.style.top = y + "px";
+                particle.style.zIndex = 20;
+                particle.style.fontSize = "20px";
+                particle.style.pointerEvents = "none";
+
+                document.body.appendChild(particle);
+
+                const angle =
+                    (Math.PI * 2 * i) / 25;
+
+                const distance =
+                    60 + Math.random() * 100;
+
+                particle.animate(
+                    [
+                        {
+                            transform: "translate(0,0)",
+                            opacity: 1
+                        },
+                        {
+                            transform:
+                            `translate(
+                                ${Math.cos(angle) * distance}px,
+                                ${Math.sin(angle) * distance}px
+                            )`,
+                            opacity: 0
+                        }
+                    ],
+                    {
+                        duration: 1200,
+                        easing: "ease-out"
+                    }
+                );
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 1300);
+            }
+
+        }, burst * 300);
+    }
+}
+
+
+/* =========================
+   SIMPLE BIRTHDAY SOUND
+========================= */
+
+function playBirthdaySound() {
+
+    const audioContext =
+        new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+    const notes = [
+        523.25,
+        523.25,
+        587.33,
+        523.25,
+        698.46,
+        659.25
+    ];
+
+    notes.forEach((frequency, index) => {
+
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.frequency.value = frequency;
+        oscillator.type = "sine";
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        gain.gain.setValueAtTime(
+            0.15,
+            audioContext.currentTime +
+            index * .25
+        );
+
+        oscillator.start(
+            audioContext.currentTime +
+            index * .25
+        );
+
+        oscillator.stop(
+            audioContext.currentTime +
+            index * .25 + .2
+        );
+    });
+}
+
+
+/* =========================
+   CONTINUOUS FALLING FLOWERS
+========================= */
+
+setInterval(() => {
+
+    const flower = document.createElement("div");
+
+    flower.className = "flower";
+
+    const flowers = [
+        "🌸","🌺","🌹","🌷","🌼","💐"
+    ];
+
+    flower.innerHTML =
+        flowers[Math.floor(Math.random() * flowers.length)];
+
+    flower.style.left =
+        Math.random() * 100 + "vw";
+
+    flower.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    flower.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(flower);
+
+    setTimeout(() => {
+        flower.remove();
+    }, 10000);
+
+}, 700);
+
+</script>
+
+</body>
+</html>
