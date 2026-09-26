@@ -1,269 +1,347 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Mom ❤️</title>
+<title>Happy Birthday Varshini Krishna ❤️</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
+body{
     font-family: "Georgia", serif;
-    overflow-x: hidden;
-    background: #001f3f;
-    color: white;
+    overflow:hidden;
+    background:#556B2F;
+    color:white;
 }
 
-/* BEACH BACKGROUND */
-.beach {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
+/* =========================
+   COMMON PAGE
+========================= */
 
+.page{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    top:0;
+    left:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    transition:1s ease-in-out;
+    overflow:hidden;
+}
+
+.page.active{
+    left:0;
+}
+
+.content{
+    position:relative;
+    z-index:10;
+    max-width:900px;
+    padding:30px;
+}
+
+/* =========================
+   PAGE 1 - OLIVE COVER
+========================= */
+
+#page1{
     background:
-        linear-gradient(
-            to bottom,
-            rgba(255, 180, 100, 0.25),
-            rgba(0, 180, 220, 0.15)
-        ),
-        linear-gradient(
-            to bottom,
-            #ffb88c 0%,
-            #ffd59a 20%,
-            #65c7d8 48%,
-            #0789a8 70%,
-            #f4d59a 70%,
-            #e6c080 100%
-        );
+    radial-gradient(circle at top, #829c45, #556B2F 50%, #283618);
 }
 
-/* SUN */
-.sun {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #fff2a8;
-    box-shadow: 0 0 70px #fff2a8;
-    top: 70px;
-    right: 12%;
+.olive-leaf{
+    font-size:70px;
+    animation:sway 3s infinite ease-in-out;
 }
 
-/* CONTENT */
-.container {
-    position: relative;
-    z-index: 5;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px;
+@keyframes sway{
+    0%,100%{transform:rotate(-5deg);}
+    50%{transform:rotate(5deg);}
 }
 
-.card {
-    width: min(850px, 95%);
-    padding: 50px 35px;
-    border-radius: 30px;
-
-    background: rgba(255,255,255,0.16);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.35);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.25),
-        inset 0 0 30px rgba(255,255,255,0.12);
-
-    animation: appear 2s ease;
+h1{
+    font-size:clamp(45px,8vw,90px);
+    margin:20px 0;
+    color:#fff8dc;
+    text-shadow:0 0 20px #d4e157;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(40px) scale(.9);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+.subtitle{
+    font-size:25px;
+    color:#f5f5dc;
 }
 
-.small {
-    font-size: 20px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+.enter-btn,
+.next-btn{
+    margin-top:35px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#fff8dc;
+    color:#556B2F;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,255,255,.5);
+    transition:.3s;
 }
 
-h1 {
-    font-size: clamp(45px, 8vw, 85px);
-    color: #fff;
+.enter-btn:hover,
+.next-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 35px white;
+}
+
+/* =========================
+   PAGE 2 - HER DETAILS
+========================= */
+
+#page2{
+    background:linear-gradient(135deg,#3f5125,#788b43,#d8cfa4);
+}
+
+.profile-card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(12px);
+    padding:40px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.4);
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.profile-card h2{
+    font-size:48px;
+    color:#fffde7;
+    margin-bottom:25px;
+}
+
+.detail{
+    font-size:23px;
+    margin:15px;
+}
+
+.flower-line{
+    font-size:45px;
+    margin:20px;
+}
+
+/* =========================
+   PAGE 3 - GREETING
+========================= */
+
+#page3{
+    background:linear-gradient(135deg,#722f37,#a44a55,#3b1f2b);
+}
+
+.greeting{
+    font-size:24px;
+    line-height:1.8;
+    color:#fff5f5;
+}
+
+.quote{
+    font-size:32px;
+    font-style:italic;
+    margin:25px 0;
+    color:#ffd6df;
+}
+
+/* =========================
+   PAGE 4 - FLOWERS
+========================= */
+
+#page4{
+    background:linear-gradient(135deg,#274e13,#588157,#a3b18a);
+}
+
+.flowers{
+    font-size:75px;
+    letter-spacing:15px;
+    animation:flowers 2s infinite alternate;
+}
+
+@keyframes flowers{
+    from{transform:scale(.9);}
+    to{transform:scale(1.1);}
+}
+
+.flower-message{
+    font-size:30px;
+    margin:25px;
+}
+
+/* =========================
+   PAGE 5 - BIRTHDAY BLAST
+========================= */
+
+#page5{
+    background:
+    radial-gradient(circle,#542437,#1a0b13);
+}
+
+.blast-title{
+    font-size:clamp(45px,8vw,85px);
+    color:#ffe66d;
     text-shadow:
-        0 0 10px #ff69b4,
-        0 0 25px #ff69b4,
-        0 0 50px #ff1493;
-
-    animation: glow 2s infinite alternate;
+    0 0 10px #ff9f1c,
+    0 0 30px #ff9f1c,
+    0 0 60px #ff006e;
+    animation:blastText .8s infinite alternate;
 }
 
-@keyframes glow {
-    from {
-        text-shadow:
-        0 0 10px #ff69b4,
-        0 0 20px #ff69b4;
+@keyframes blastText{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
+}
+
+.cake{
+    font-size:100px;
+    animation:cakeBounce 1s infinite;
+}
+
+@keyframes cakeBounce{
+    50%{transform:translateY(-15px);}
+}
+
+/* =========================
+   PAGE 6 - FINAL
+========================= */
+
+#page6{
+    background:linear-gradient(135deg,#141e30,#243b55,#4b6043);
+}
+
+.final-message{
+    font-size:27px;
+    line-height:1.8;
+}
+
+.final-name{
+    font-size:60px;
+    color:#ffccd5;
+    text-shadow:0 0 20px pink;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:25px;
+    animation:floatHeart linear infinite;
+    pointer-events:none;
+    z-index:2;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
     }
-    to {
-        text-shadow:
-        0 0 20px #fff,
-        0 0 40px #ff69b4,
-        0 0 70px #ff1493;
-    }
-}
-
-.age {
-    margin: 15px 0;
-    font-size: 22px;
-}
-
-.quote {
-    font-size: 25px;
-    line-height: 1.6;
-    font-style: italic;
-    margin: 30px auto;
-    max-width: 700px;
-}
-
-.message {
-    font-size: 19px;
-    line-height: 1.8;
-    margin: 25px auto;
-    max-width: 700px;
-}
-
-.highlight {
-    color: #ffe4f2;
-    font-weight: bold;
-}
-
-/* BUTTON */
-button {
-    margin-top: 20px;
-    padding: 15px 35px;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(45deg, #ff4081, #ff80ab);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-
-    box-shadow: 0 8px 25px rgba(255,64,129,.5);
-    transition: .3s;
-}
-
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 35px rgba(255,64,129,.8);
-}
-
-/* FLOWERS */
-.flower {
-    position: fixed;
-    top: -50px;
-    z-index: 10;
-    pointer-events: none;
-    animation: fall linear forwards;
-}
-
-@keyframes fall {
-    to {
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity: 0;
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
     }
 }
 
-/* FLOATING HEARTS */
-.heart {
-    position: absolute;
-    color: #ffb6d5;
-    font-size: 25px;
-    animation: float 5s infinite ease-in-out;
+/* =========================
+   ROSES
+========================= */
+
+.rose{
+    position:fixed;
+    top:-50px;
+    font-size:30px;
+    animation:fall linear infinite;
+    z-index:2;
+    pointer-events:none;
 }
 
-@keyframes float {
-    0%,100% {
-        transform: translateY(0);
-        opacity: .5;
-    }
-
-    50% {
-        transform: translateY(-30px);
-        opacity: 1;
-    }
-}
-
-/* WAVES */
-.wave {
-    position: absolute;
-    bottom: 20%;
-    left: -10%;
-    width: 120%;
-    height: 100px;
-    background: rgba(255,255,255,.25);
-    border-radius: 50%;
-    animation: waveMove 6s ease-in-out infinite;
-}
-
-.wave:nth-child(2) {
-    bottom: 25%;
-    animation-delay: -2s;
-    opacity: .5;
-}
-
-@keyframes waveMove {
-    0%,100% {
-        transform: translateX(-3%) rotate(1deg);
-    }
-    50% {
-        transform: translateX(3%) rotate(-1deg);
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
     }
 }
 
-/* SAND TEXT */
-.sand {
-    position: absolute;
-    bottom: 7%;
-    width: 100%;
-    text-align: center;
-    color: rgba(80,50,20,.55);
-    font-size: 18px;
-    letter-spacing: 3px;
+/* =========================
+   FIREWORKS
+========================= */
+
+.firework{
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:20;
+    animation:explode 1s ease-out forwards;
 }
 
-/* MOBILE */
-@media(max-width:600px) {
-    .card {
-        padding: 35px 20px;
+@keyframes explode{
+    0%{
+        transform:scale(1);
+        opacity:1;
     }
 
-    .quote {
-        font-size: 20px;
+    100%{
+        transform:scale(25);
+        opacity:0;
+    }
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:100;
+}
+
+.navigation button{
+    border:none;
+    padding:10px 18px;
+    margin:5px;
+    border-radius:20px;
+    cursor:pointer;
+    background:rgba(255,255,255,.8);
+    color:#333;
+}
+
+@media(max-width:600px){
+    .profile-card h2{
+        font-size:35px;
     }
 
-    .message {
-        font-size: 16px;
+    .greeting{
+        font-size:18px;
     }
 
-    .sun {
-        width: 80px;
-        height: 80px;
+    .quote{
+        font-size:23px;
+    }
+
+    .final-message{
+        font-size:19px;
+    }
+
+    .flowers{
+        font-size:50px;
     }
 }
 </style>
@@ -271,303 +349,443 @@ button:hover {
 
 <body>
 
-<div class="beach">
+<!-- ================= PAGE 1 ================= -->
 
-    <div class="sun"></div>
+<section class="page active" id="page1">
 
-    <!-- Waves -->
-    <div class="wave"></div>
-    <div class="wave"></div>
+    <div class="content">
 
-    <!-- Floating hearts -->
-    <div class="heart" style="left:10%; top:20%;">♡</div>
-    <div class="heart" style="left:85%; top:35%; animation-delay:1s;">♡</div>
-    <div class="heart" style="left:20%; top:60%; animation-delay:2s;">♡</div>
-    <div class="heart" style="left:75%; top:65%; animation-delay:3s;">♡</div>
+        <div class="olive-leaf">🫒🌿</div>
 
-    <div class="container">
+        <h1>
+            Happy Birthday
+            <br>
+            Varshini Krishna ❤️
+        </h1>
 
-        <div class="card">
+        <p class="subtitle">
+            A little magical surprise made especially for you ✨
+        </p>
 
-            <div class="small">🌊 A Special Day By The Sea 🌊</div>
+        <button class="enter-btn" onclick="nextPage()">
+            Open Your Surprise 💌
+        </button>
 
-            <h1>Happy Birthday<br>Mom ❤️</h1>
+    </div>
 
-            <div class="age">
-                ✨ Shailaja ✨
-                <br>
-                <span>23 April 1990</span>
+</section>
+
+
+<!-- ================= PAGE 2 ================= -->
+
+<section class="page" id="page2">
+
+    <div class="content">
+
+        <div class="profile-card">
+
+            <div class="flower-line">
+                🌹 🌷 💐 🌷 🌹
             </div>
 
-            <div class="quote">
-                "A mother's love is the ocean —
-                endless, beautiful, and deeper than words can ever describe."
+            <h2>For My Beautiful Sister ❤️</h2>
+
+            <p class="detail">
+                👑 Name: <b>Varshini Krishna</b>
+            </p>
+
+            <p class="detail">
+                🎂 Date of Birth: <b>21 October 2004</b>
+            </p>
+
+            <p class="detail">
+                💕 Relationship: <b>My Wonderful Elder Sister</b>
+            </p>
+
+            <div class="flower-line">
+                🌷 🌹 🌷 🌹 🌷
             </div>
 
-            <div class="message">
-
-                Dear <span class="highlight">Mom, Shailaja</span> ❤️,
-
-                <br><br>
-
-                Today, the waves seem a little brighter,
-                the flowers a little more beautiful,
-                and the sky a little more magical —
-                because it's the birthday of the most wonderful mother.
-
-                <br><br>
-
-                You are the warmth of my sunshine,
-                the calm in my storms,
-                and the beautiful reason behind so many of my smiles.
-
-                <br><br>
-
-                May your life always be filled with
-                <span class="highlight">
-                    happiness, laughter, love, peace and countless beautiful memories.
-                </span>
-
-                <br><br>
-
-                🌸 May every flower bloom for you.<br>
-                🌊 May every wave carry your worries away.<br>
-                ✨ May every sunrise bring you a new reason to smile.
-
-            </div>
-
-            <div class="quote">
-                "No matter how far the waves travel,
-                they always return to the shore —
-                just like my heart will always return to you, Mom."
-            </div>
-
-            <button onclick="birthdayBlast()">
-                🎉 CLICK FOR BIRTHDAY BLAST 🎉
+            <button class="next-btn" onclick="nextPage()">
+                Continue 💕
             </button>
 
         </div>
 
     </div>
 
-    <div class="sand">
-        🌸 Forever Loved • Forever Cherished • Forever Mom 🌸
+</section>
+
+
+<!-- ================= PAGE 3 ================= -->
+
+<section class="page" id="page3">
+
+    <div class="content">
+
+        <div style="font-size:65px;">
+            ❤️ 💖 💗 💕 💓
+        </div>
+
+        <h1>Dear Varshini...</h1>
+
+        <p class="quote">
+            "Some people make life beautiful simply by being a part of it."
+        </p>
+
+        <p class="greeting">
+            You are not just my elder sister,
+            you are one of the most beautiful chapters
+            of my life. ❤️
+            <br><br>
+
+            Your smile brings happiness,
+            your presence brings comfort,
+            and your love makes every ordinary day
+            feel a little more special.
+            🌹
+            <br><br>
+
+            May every dream you carry in your heart
+            find its way into reality.
+            ✨
+        </p>
+
+        <button class="next-btn" onclick="nextPage()">
+            More Magic ✨
+        </button>
+
     </div>
+
+</section>
+
+
+<!-- ================= PAGE 4 ================= -->
+
+<section class="page" id="page4">
+
+    <div class="content">
+
+        <div class="flowers">
+            🌹 🌷 🌹 🌷 🌹
+        </div>
+
+        <h1>Flowers For You 🌸</h1>
+
+        <p class="flower-message">
+            🌹 Roses for your beautiful heart
+            <br>
+            🌷 Tulips for your graceful soul
+            <br>
+            💐 Flowers for every beautiful moment
+            <br>
+            ❤️ And endless love for you
+        </p>
+
+        <div style="font-size:55px;">
+            🌹❤️🌷❤️🌹
+        </div>
+
+        <button class="next-btn" onclick="nextPage()">
+            Let The Celebration Begin 🎉
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 5 ================= -->
+
+<section class="page" id="page5">
+
+    <div class="content">
+
+        <div class="cake">🎂</div>
+
+        <h1 class="blast-title">
+            HAPPY BIRTHDAY!!!
+        </h1>
+
+        <h2 style="font-size:35px;margin:20px;">
+            VARSHINI KRISHNA ❤️
+        </h2>
+
+        <p style="font-size:25px;">
+            🎉 🎊 🎆 🎇 🎉 🎊
+        </p>
+
+        <p style="font-size:23px;margin-top:20px;">
+            May your life always sparkle
+            brighter than these fireworks! ✨
+        </p>
+
+        <button class="next-btn" onclick="nextPage()">
+            One Last Surprise 💖
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PAGE 6 ================= -->
+
+<section class="page" id="page6">
+
+    <div class="content">
+
+        <div style="font-size:65px;">
+            💖 🌹 🌷 ❤️ 🌹 💖
+        </div>
+
+        <h1 class="final-name">
+            Varshini
+        </h1>
+
+        <p class="final-message">
+
+            On your special day,
+            I wish you endless happiness,
+            peaceful moments,
+            beautiful memories,
+            and countless reasons to smile. ❤️
+            <br><br>
+
+            Keep shining.
+            Keep smiling.
+            Keep being the wonderful person you are.
+            ✨
+            <br><br>
+
+            No matter how much time passes,
+            you will always be my precious elder sister.
+            💕
+            <br><br>
+
+            <b>Happy Birthday, Akka! 🎂🌹❤️</b>
+
+        </p>
+
+        <div style="font-size:45px;margin-top:25px;">
+            ❤️ ❤️ ❤️ ❤️ ❤️
+        </div>
+
+        <button class="next-btn" onclick="restart()">
+            Replay The Magic 🔄
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- NAVIGATION -->
+
+<div class="navigation">
+
+    <button onclick="goToPage(0)">1</button>
+    <button onclick="goToPage(1)">2</button>
+    <button onclick="goToPage(2)">3</button>
+    <button onclick="goToPage(3)">4</button>
+    <button onclick="goToPage(4)">5</button>
+    <button onclick="goToPage(5)">6</button>
 
 </div>
 
+
 <script>
 
-/* =========================
-   BIRTHDAY BLAST
-========================= */
+let currentPage = 0;
 
-function birthdayBlast() {
+const pages = document.querySelectorAll(".page");
 
-    // Confetti
-    for(let i = 0; i < 150; i++) {
+function goToPage(number){
 
-        const flower = document.createElement("div");
+    pages[currentPage].classList.remove("active");
 
-        flower.className = "flower";
+    currentPage = number;
 
-        const flowers = [
-            "🌸",
-            "🌺",
-            "🌹",
-            "🌷",
-            "💮",
-            "✨",
-            "💖",
-            "🎉",
-            "🎊"
-        ];
+    pages[currentPage].classList.add("active");
 
-        flower.innerHTML =
-            flowers[Math.floor(Math.random() * flowers.length)];
-
-        flower.style.left =
-            Math.random() * 100 + "vw";
-
-        flower.style.fontSize =
-            (15 + Math.random() * 30) + "px";
-
-        flower.style.animationDuration =
-            (3 + Math.random() * 5) + "s";
-
-        document.body.appendChild(flower);
-
-        setTimeout(() => {
-            flower.remove();
-        }, 8000);
+    if(currentPage === 4){
+        birthdayBlast();
     }
 
-    // Firework-style bursts
-    createFireworks();
+}
 
-    // Change button
-    document.querySelector("button").innerHTML =
-        "💖 LOVE YOU MOM! 💖";
+function nextPage(){
 
-    // Play birthday sound
-    playBirthdaySound();
+    if(currentPage < pages.length - 1){
+        goToPage(currentPage + 1);
+    }
+
+}
+
+function restart(){
+    goToPage(0);
 }
 
 
 /* =========================
-   FIREWORKS
+   FLOATING HEARTS
 ========================= */
 
-function createFireworks() {
+function createHeart(){
 
-    for(let burst = 0; burst < 8; burst++) {
+    const heart = document.createElement("div");
 
-        setTimeout(() => {
+    heart.className = "heart";
 
-            const x = Math.random() * window.innerWidth;
-            const y = 100 + Math.random() *
-                (window.innerHeight * .5);
+    const hearts = [
+        "❤️","💖","💗","💕","💓",
+        "💞","💘","💝","♥️"
+    ];
 
-            for(let i = 0; i < 25; i++) {
+    heart.innerHTML =
+        hearts[Math.floor(Math.random()*hearts.length)];
 
-                const particle =
-                    document.createElement("div");
+    heart.style.left =
+        Math.random()*100 + "vw";
 
-                particle.innerHTML = "✨";
+    heart.style.animationDuration =
+        (4 + Math.random()*6) + "s";
 
-                particle.style.position = "fixed";
-                particle.style.left = x + "px";
-                particle.style.top = y + "px";
-                particle.style.zIndex = 20;
-                particle.style.fontSize = "20px";
-                particle.style.pointerEvents = "none";
+    heart.style.fontSize =
+        (15 + Math.random()*35) + "px";
 
-                document.body.appendChild(particle);
+    document.body.appendChild(heart);
 
-                const angle =
-                    (Math.PI * 2 * i) / 25;
+    setTimeout(()=>{
+        heart.remove();
+    },10000);
 
-                const distance =
-                    60 + Math.random() * 100;
+}
 
-                particle.animate(
-                    [
-                        {
-                            transform: "translate(0,0)",
-                            opacity: 1
-                        },
-                        {
-                            transform:
-                            `translate(
-                                ${Math.cos(angle) * distance}px,
-                                ${Math.sin(angle) * distance}px
-                            )`,
-                            opacity: 0
-                        }
-                    ],
-                    {
-                        duration: 1200,
-                        easing: "ease-out"
-                    }
-                );
+setInterval(createHeart,350);
 
-                setTimeout(() => {
-                    particle.remove();
-                }, 1300);
+
+/* =========================
+   FALLING ROSES
+========================= */
+
+function createRose(){
+
+    const rose = document.createElement("div");
+
+    rose.className = "rose";
+
+    rose.innerHTML =
+        Math.random() > .5 ? "🌹" : "🌷";
+
+    rose.style.left =
+        Math.random()*100 + "vw";
+
+    rose.style.animationDuration =
+        (5 + Math.random()*7) + "s";
+
+    rose.style.fontSize =
+        (20 + Math.random()*30) + "px";
+
+    document.body.appendChild(rose);
+
+    setTimeout(()=>{
+        rose.remove();
+    },12000);
+
+}
+
+setInterval(createRose,600);
+
+
+/* =========================
+   BIRTHDAY FIREWORK BLAST
+========================= */
+
+function birthdayBlast(){
+
+    for(let i=0;i<45;i++){
+
+        setTimeout(()=>{
+
+            const firework =
+                document.createElement("div");
+
+            firework.className="firework";
+
+            firework.style.left =
+                Math.random()*100+"vw";
+
+            firework.style.top =
+                Math.random()*80+"vh";
+
+            document.body.appendChild(firework);
+
+            setTimeout(()=>{
+                firework.remove();
+            },1000);
+
+        },i*80);
+
+    }
+
+}
+
+
+/* =========================
+   AUTO HEART BURST
+========================= */
+
+document.addEventListener("click",function(e){
+
+    for(let i=0;i<8;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.innerHTML="❤️";
+
+        heart.style.position="fixed";
+        heart.style.left=e.clientX+"px";
+        heart.style.top=e.clientY+"px";
+        heart.style.fontSize="25px";
+        heart.style.zIndex="999";
+
+        document.body.appendChild(heart);
+
+        const angle =
+            Math.random()*Math.PI*2;
+
+        const distance =
+            50 + Math.random()*100;
+
+        heart.animate([
+            {
+                transform:"translate(0,0) scale(1)",
+                opacity:1
+            },
+            {
+                transform:
+                `translate(${Math.cos(angle)*distance}px,
+                ${Math.sin(angle)*distance}px)
+                scale(0)`,
+                opacity:0
             }
+        ],{
+            duration:1000,
+            easing:"ease-out"
+        });
 
-        }, burst * 300);
+        setTimeout(()=>{
+            heart.remove();
+        },1000);
+
     }
-}
 
-
-/* =========================
-   SIMPLE BIRTHDAY SOUND
-========================= */
-
-function playBirthdaySound() {
-
-    const audioContext =
-        new (window.AudioContext ||
-        window.webkitAudioContext)();
-
-    const notes = [
-        523.25,
-        523.25,
-        587.33,
-        523.25,
-        698.46,
-        659.25
-    ];
-
-    notes.forEach((frequency, index) => {
-
-        const oscillator =
-            audioContext.createOscillator();
-
-        const gain =
-            audioContext.createGain();
-
-        oscillator.frequency.value = frequency;
-        oscillator.type = "sine";
-
-        oscillator.connect(gain);
-        gain.connect(audioContext.destination);
-
-        gain.gain.setValueAtTime(
-            0.15,
-            audioContext.currentTime +
-            index * .25
-        );
-
-        oscillator.start(
-            audioContext.currentTime +
-            index * .25
-        );
-
-        oscillator.stop(
-            audioContext.currentTime +
-            index * .25 + .2
-        );
-    });
-}
-
-
-/* =========================
-   CONTINUOUS FALLING FLOWERS
-========================= */
-
-setInterval(() => {
-
-    const flower = document.createElement("div");
-
-    flower.className = "flower";
-
-    const flowers = [
-        "🌸","🌺","🌹","🌷","🌼","💐"
-    ];
-
-    flower.innerHTML =
-        flowers[Math.floor(Math.random() * flowers.length)];
-
-    flower.style.left =
-        Math.random() * 100 + "vw";
-
-    flower.style.fontSize =
-        (15 + Math.random() * 20) + "px";
-
-    flower.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
-
-    document.body.appendChild(flower);
-
-    setTimeout(() => {
-        flower.remove();
-    }, 10000);
-
-}, 700);
+});
 
 </script>
 
 </body>
 </html>
+```
